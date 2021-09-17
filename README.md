@@ -2,6 +2,8 @@
 
 Pytorch Code of  our method for "Homogeneous and Heterogeneous Relational Graph for Visible-infrared Person Re-identification" 
 
+![our_approach8](our_approach8.jpg)
+
 ### Results on the SYSU-MM01 Dataset an the RegDB Dataset 
 | Method | Datasets                   | Rank@1    | mAP       |
 | ------ | -------------------------- | --------- | --------- |
