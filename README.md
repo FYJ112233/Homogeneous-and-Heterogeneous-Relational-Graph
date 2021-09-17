@@ -1,6 +1,6 @@
 
 
-Pytorch Code of  our method for "Homogeneous and Heterogeneous Relational Graph for Visible-infrared Person Re-identification" 
+Pytorch Code of  our approach for "Homogeneous and Heterogeneous Relational Graph for Visible-infrared Person Re-identification" 
 
 ![our_approach8](our_approach.jpg)
 
