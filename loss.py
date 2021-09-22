@@ -77,27 +77,18 @@ def normalize(x, axis=-1):
     return x
 
 class CMCC(nn.Module):
-
-
     def __init__(self, batch_size, margin=0.3):
-        super(BarlowTwins_loss, self).__init__()
         self.margin = margin
         self.ranking_loss = nn.MarginRankingLoss(margin=margin)
-
-        # projector
-
     def forward(self, inputs, targets):
 
         feat_V, feat_T = torch.chunk(inputs, 2, dim=0)
         c = feat_V.T @ feat_T  # empirical cross-correlation matrix
-
         n = inputs.size(0)
-
         c.div_(n) 
-
         on_diag = torch.diagonal(c).add_(-1).pow_(2).sum()
         off_diag = off_diagonal(c).pow_(2).sum()
-        loss = (on_diag + 0.051 * off_diag) / feat_V.size（0）
+        loss = (on_diag + 0.050 * off_diag) / feat_V.size（0）
         return loss
 
 def off_diagonal(x):
