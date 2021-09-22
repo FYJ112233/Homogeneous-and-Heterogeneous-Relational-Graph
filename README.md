@@ -56,3 +56,6 @@ You may need manually define the data path first.
 [5] Ye, Mang, et al. "Deep learning for person re-identification: A survey and outlook." IEEE Transactions on Pattern Analysis and Machine Intelligence, 2021.
 ```
 
+```
+[6] Zhang X, Luo H, Fan X, et al. Alignedreid: Surpassing human-level performance in person re-identification[J]. arXiv preprint arXiv:1711.08184, 2017.
+```
