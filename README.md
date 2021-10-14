@@ -33,9 +33,19 @@ Pytorch Code of  our approach for "Homogeneous and Heterogeneous Relational Grap
 
 You may need manually define the data path first.
 
+### 3. Citation
 
+Please kindly cite the references in your publications if it helps your research:
+```
+@article{feng2021homogeneous,
+  title={Homogeneous and Heterogeneous Relational Graph for Visible-infrared Person Re-identification},
+  author={Feng, Yujian and Chen, Feng and Yu, Jian and Ji, Yimu and Wu, Fei and Liu, Shangdong},
+  journal={arXiv preprint arXiv:2109.08811},
+  year={2021}
+}
+```
 
-### 3. References
+### 4. References
 
 ```
 [1] D. T. Nguyen, H. G. Hong, K. W. Kim, and K. R. Park. Person recognition system based on a combination of body images from visible light and thermal cameras. Sensors, 17(3):605, 2017.
