@@ -31,7 +31,7 @@ parser.add_argument('--optim', default='sgd', type=str, help='optimizer')
 parser.add_argument('--arch', default='resnet50', type=str,
                     help='network baseline:resnet18 or resnet50')
 parser.add_argument('--resume', '-r', default='', type=str,
-                    help='resume from checkpoint') # default 为ckpt 文件名
+                    help='resume from checkpoint') 
 parser.add_argument('--test-only', action='store_true', help='test only')
 parser.add_argument('--model_path', default='save_model/', type=str,
                     help='model save path')
@@ -74,7 +74,7 @@ parser.add_argument('--pcb', default='on', type=str, help='performing PCB, on or
 parser.add_argument('--w_center', default=2.0, type=float, help='the weight for center loss')
 
 parser.add_argument('--local_feat_dim', default=512, type=int,
-                    help='feature dimention of each local feature in PCB，256, 512 ')
+                    help='feature dimention of each local feature in PCB，256, 512，1024，2048 ')
 parser.add_argument('--num_strips', default=6, type=int,
                     help='num of local strips in PCB')
 
