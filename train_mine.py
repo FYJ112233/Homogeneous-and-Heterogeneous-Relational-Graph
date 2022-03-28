@@ -250,7 +250,7 @@ g_tri_loss = global_loss_idx(batch_size=loader_batch, margin=args.margin)
 l_tri_loss = local_loss_idx(batch_size=loader_batch, margin=args.margin)
 
 
-# SSL 损失
+
 twinsloss = BarlowTwins_loss(batch_size=loader_batch, margin=args.margin)
 
 criterion_id.to(device)
@@ -350,7 +350,7 @@ def train(epoch):
             loss_tri_relation, batch_acc_relation = criterion_tri(relation_final_feat_all, labels)
             loss_tri_relation += loss_tri_l_relation * args.w_center
 
-            ### PCB-tri
+           
             loss_id = criterion_id(out0[0], labels.long())
 
             loss_tri_l, batch_acc = criterion_tri(feat[0], labels)
@@ -360,15 +360,15 @@ def train(epoch):
             loss_tri, batch_acc = criterion_tri(feat_all, labels)
             loss_tri += loss_tri_l * args.w_center
 
-            ### SSL  loss
+          
             loss_twins = twinsloss(feat_all, labels)
 
-            ### Aligned loss
+        
             loss_global_loss_inx, p_inds, n_inds, _, _ = g_tri_loss(global_feature_extract, labels.long())
             loss_local_loss_inx, _, _ = l_tri_loss(local_feat_extract, p_inds, n_inds, labels)
 
 
-            # total loss
+           
             correct += batch_acc
             loss =  loss_id + loss_tri + loss_twins + loss_local_loss_inx + loss_tri_relation #+loss_id_relation#+ loss_global_loss_inx
 
@@ -514,8 +514,7 @@ for epoch in range(start_epoch, 101 if args.dataset == 'regdb' else 101  - start
 
     trainset.cIndex = sampler.index1  # color index
     trainset.tIndex = sampler.index2  # thermal index
-    # print(epoch) # 显示epoch，但很累赘
-
+    # print(epoch) 
     loader_batch = args.batch_size * args.num_pos
 
     trainloader = data.DataLoader(trainset, batch_size=loader_batch, \
