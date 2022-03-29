@@ -357,7 +357,7 @@ def train(epoch):
             loss_tri_relation, batch_acc_relation = criterion_tri(relation_final_feat_all, labels)
             loss_tri_relation += loss_tri_l_relation * args.w_center
 
-            ### PCB-tri
+            ### 
             loss_id = criterion_id(out0[0], labels.long())
 
             loss_tri_l, batch_acc = criterion_tri(feat[0], labels)
