@@ -199,12 +199,6 @@ class TripletLoss_WRT(nn.Module):
 
 
 class BarlowTwins_loss(nn.Module):
-    """ https://github.com/facebookresearch/barlowtwins.
-    Reference:
-    Barlow Twins: Self-Supervised Learning via Redundancy Reduction.
-
-    """
-
     def __init__(self, batch_size, margin=0.3):
         super(BarlowTwins_loss, self).__init__()
         self.margin = margin
@@ -229,7 +223,7 @@ class BarlowTwins_loss(nn.Module):
 
         on_diag = torch.diagonal(c).add_(-1).pow_(2).sum()
         off_diag = off_diagonal(c).pow_(2).sum()
-        # off_diag 比例从0.00051递增到0.051(10倍数递增)效果逐渐增加。
+        # off_diag 
         loss = (on_diag + 0.051 * off_diag) / 2048
         return loss
 
@@ -586,14 +580,13 @@ class global_loss_idx(nn.Module):
         global_feat = normalize(global_feat, axis=-1)
         inputs = global_feat
 
-        # 计算特征之间的度量距离
         n = inputs.size(0)
         dist_mat = torch.pow(inputs, 2).sum(dim=1, keepdim=True).expand(n, n)
         dist_mat = dist_mat + dist_mat.t()
         dist_mat.addmm_(1, -2, inputs, inputs.t())
         dist_mat = dist_mat.clamp(min=1e-12).sqrt()
 
-        #难样本挖掘，并得到同类难样本和异类难样本的 idx.
+      
         N = dist_mat.size(0)
         is_pos = labels.expand(N, N).eq(labels.expand(N, N).t())
         is_neg = labels.expand(N, N).ne(labels.expand(N, N).t())
@@ -676,7 +669,7 @@ class local_loss_idx(nn.Module):
         # dist_mat.addmm_(1, -2, inputs, inputs.t())
         # dist_mat = dist_mat.clamp(min=1e-12).sqrt()
         #
-        # # 最短路径
+        # #
         # m, n = dist_mat.size()[:2]
         # # Just offering some reference for accessing intermediate distance.
         # dist = [[0 for _ in range(n)] for _ in range(m)]
