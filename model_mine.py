@@ -525,10 +525,10 @@ class embed_net(nn.Module):
             # feat_all_align = feat_all
             feat_all = torch.cat(feat_all, dim=1)
 
-            #####  align 部分
-            # 将6个list [96, 256]，在第三个维度上，拼接成 [96, 256, 6]
+            #####  align 
+            # 
             # feat_all_add_dim = torch.stack(feat_all_align, dim=2)
-            # # 维度交换， [96, 6, 256]
+            # 
             # feat_all_add_dim_local = feat_all_add_dim.permute(0, 2, 1)
 
 
